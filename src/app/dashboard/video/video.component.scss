@@ -1,0 +1,32 @@
+.video {
+  height: 200px;
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+ }
+
+@media (min-width: 576px) {
+  .video {
+    height: 285px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .video {
+    height: 390px;
+  }
+}
+
+@media (min-width: 992px) {
+  .video {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .video {
+    height: 380px;
+  }
+}

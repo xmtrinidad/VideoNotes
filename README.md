@@ -1,27 +1,47 @@
 # VideoNotes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+* Enter a youtube URL and take notes in markdown
+* Save your resources and review your notes at anytime
 
-## Development server
+# Documentation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+From a development standpoint, my goal is to improve my web development and UI/UX skills.  
 
-## Code scaffolding
+This project uses Angular and Angular Material, with Bootstrap for some layout components.  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Angular Material
+## Setting up a custom theme
 
-## Build
+The basic template for a custom theme using Angular material looks like this:
+```css
+@import '~@angular/material/theming';
+@include mat-core();
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+$video-app-primary: mat-palette($mat-cyan);
+$video-app-accent:  mat-palette($mat-amber);
+$video-app-warn:    mat-palette($mat-red);
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+$video-app-theme: mat-light-theme($video-app-primary, $video-app-accent, $video-app-warn);
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+@include angular-material-theme($video-app-theme);
+```
 
-## Further help
+The first two lines:
+```css
+@import '~@angular/material/theming';
+@include mat-core();
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+These are needed for a theme to be used.  The next three lines:
+```css
+$video-app-primary: mat-palette($mat-cyan);
+$video-app-accent:  mat-palette($mat-amber);
+$video-app-warn:    mat-palette($mat-red);
+```
+I chose the name *$video-app* to match the overall project, but these can be named anything.  The material colors need to be defined within the *mat-palette* mixin.
+
+The three material colors are passed into the *$video-app-theme* variable using the *mat-light-theme* mixin.  With this mix-in, the project can easily be switched to a dark theme by using the *mat-dark-theme* mixin.
+
+Finally, *angular-material-theme* is included, passing in the defined theme.

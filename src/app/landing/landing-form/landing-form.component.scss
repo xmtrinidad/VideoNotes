@@ -1,0 +1,21 @@
+.form {
+  color: #fff;
+  .form-group {
+    input {
+      background: inherit;
+      border: none;
+      border-radius: 0;
+      border-bottom: 2px solid #fff;
+      color: #000 !important;
+      &:focus {
+        background: inherit;
+        box-shadow: none;
+        border-color: #B2EBF2;
+      }
+    }
+  }
+  .mat-raised-button {
+    font-weight: bold;
+    font-family: 'Spectral SC', serif;
+  }
+}

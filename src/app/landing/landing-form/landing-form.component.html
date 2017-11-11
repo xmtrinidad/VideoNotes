@@ -1,0 +1,16 @@
+<form class="form">
+
+  <h4>{{formInfo.formTitle}}</h4>
+
+  <div class="form-group" *ngFor="let formInput of formInfo.formInputs">
+    <label for="{{formInput.id}}">{{formInput.label}}</label>
+    <input type="{{formInput.type}}" id="{{formInput.id}}" class="form-control">
+  </div>
+
+  <div *ngFor="let formBtn of formInfo.buttons" class="landing__btns btn-group mr-2">
+    <button (click)="formClick(formBtn.name)"
+            mat-raised-button [color]="formBtn.color"
+            type="button">{{formBtn.name}}
+    </button>
+  </div>
+</form>

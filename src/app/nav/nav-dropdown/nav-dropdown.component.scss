@@ -1,0 +1,51 @@
+@import '~@angular/material/theming';
+
+@mixin nav-dropdown-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .dropdown {
+    background-color: mat-color($accent, 300);
+  }
+}
+
+.dropdown {
+  padding: 10px 35px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 3;
+}
+
+.dropdown__close {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: #333;
+}
+
+.dropdown-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  .dropdown-list__item {
+    font-weight: bold;
+    padding: 13px 0;
+  }
+}
+
+.dropdown__add {
+  position: relative;
+  text-align: center;
+  height: 100%;
+  margin: 30px 0;
+  .mat-raised-button {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
