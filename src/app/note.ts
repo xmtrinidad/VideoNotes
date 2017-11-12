@@ -5,4 +5,4 @@ export class Note {
   category: string;
 }
 
-export const NOTES: Note[] = [];
+

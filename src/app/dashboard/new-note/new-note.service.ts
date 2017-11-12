@@ -1,5 +1,8 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import { Note, NOTES } from '../../note';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { Note} from '../../note';
+import { NOTES } from '../../mock-data';
 
 @Injectable()
 export class NewNoteService {
@@ -7,6 +10,10 @@ export class NewNoteService {
   noteSubmitted = new EventEmitter();
 
   constructor() { }
+
+  getNotes(): Observable<Note[]> {
+    return of(NOTES);
+  }
 
   /**
    * Add note to array of NOTES

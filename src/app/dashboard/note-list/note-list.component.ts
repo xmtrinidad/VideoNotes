@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {NewNoteService} from '../new-note/new-note.service';
-import {NOTES} from '../../note';
+import { Note } from '../../note';
 
 @Component({
   selector: 'app-note-list',
@@ -9,12 +9,12 @@ import {NOTES} from '../../note';
   encapsulation: ViewEncapsulation.None
 })
 export class NoteListComponent implements OnInit {
-  notes = NOTES;
+  notes: Note[];
 
   constructor(private newNoteService: NewNoteService) { }
 
   ngOnInit() {
-
+    this.newNoteService.getNotes().subscribe((notes) => this.notes = notes);
   }
 
 }
