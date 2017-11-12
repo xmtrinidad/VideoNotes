@@ -18,6 +18,7 @@ import { NewNoteComponent } from './dashboard/new-note/new-note.component';
 import { VideoComponent } from './dashboard/video/video.component';
 import { SafePipe } from './dashboard/new-note/safe.pipe';
 import { NoteContentComponent } from './dashboard/note-content/note-content.component';
+import { SaveNoteComponent } from './dashboard/new-note/save-note/save-note.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NoteContentComponent } from './dashboard/note-content/note-content.comp
     VideoComponent,
     SafePipe,
     NoteContentComponent,
+    SaveNoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,9 @@ import { NoteContentComponent } from './dashboard/note-content/note-content.comp
     MaterialModule,
     FormsModule,
     MarkdownToHtmlModule.forRoot()
+  ],
+  entryComponents: [
+    SaveNoteComponent
   ],
   providers: [LandingService, NavService],
   bootstrap: [AppComponent]

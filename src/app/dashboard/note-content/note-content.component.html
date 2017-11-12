@@ -6,21 +6,28 @@
     <markdown-to-html [data]="markdown"></markdown-to-html>
   </div>
   <div class="btn-group">
+    <!-- View Markdown Button -->
     <div>
       <button (click)="togglePreview()" *ngIf="!preview" mat-fab color="accent">
         <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>
       </button>
     </div>
+
+    <!-- Preview Button -->
     <div>
       <button (click)="togglePreview()" *ngIf="preview" mat-fab color="accent">
         <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>
       </button>
     </div>
+
+    <!-- Save Button -->
     <div>
-      <button class="mx-2" mat-fab color="primary">
+      <button (click)="saveResource()" class="mx-2" mat-fab color="primary">
         <i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i>
       </button>
     </div>
+
+    <!-- Delete Button -->
     <div class="delete">
       <button mat-fab color="warn">
         <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
@@ -28,14 +35,3 @@
     </div>
   </div>
 </form>
-
-<!-- MAYBE USE THIS IN A MODAL ON SAVE -->
-
-<!--<div class="note__top">-->
-  <!--<mat-form-field>-->
-    <!--<input matInput placeholder="Resource Title">-->
-  <!--</mat-form-field>-->
-  <!--<mat-form-field>-->
-    <!--<input matInput placeholder="Date" type="date">-->
-  <!--</mat-form-field>-->
-<!--</div>-->

@@ -1,0 +1,13 @@
+<div>
+  <h5 mat-dialog-title>{{title}}</h5>
+  <mat-form-field>
+    <input [(ngModel)]="title" matInput placeholder="Resource Title">
+  </mat-form-field>
+  <mat-form-field>
+    <input [(ngModel)]="category" matInput placeholder="Category">
+  </mat-form-field>
+  <div>
+    <button (click)="save()" mat-button mat-dialog-close>Save</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+  </div>
+</div>
