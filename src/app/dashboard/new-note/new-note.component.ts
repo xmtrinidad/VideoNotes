@@ -30,17 +30,14 @@ export class NewNoteComponent implements OnInit {
     this.urlSubmitted = false;
   }
 
-
-
-
+  /**
+   * Sets url submitted to true so show video component
+   * and sets the new note url to the entered url
+   */
   enterUrl() {
+    this.newNoteService.reset();
     this.urlSubmitted = true;
-    const base_url = 'https://www.youtube.com/embed/';
-    // Get youtube link ID
-    const vid_id = this.url.split('v=')[1].split('&')[0];
-
-    this.newNoteService.newNote.url = this.url;
-    this.url = base_url + vid_id;
+    this.newNoteService.note.url = this.url;
   }
 
 }

@@ -6,7 +6,7 @@ import { NOTES } from '../../mock-data';
 
 @Injectable()
 export class NewNoteService {
-  newNote = new Note();
+  note = new Note();
   noteSubmitted = new EventEmitter();
 
   constructor() { }
@@ -15,12 +15,21 @@ export class NewNoteService {
     return of(NOTES);
   }
 
+  reset() {
+    this.note = new Note;
+  }
+
+
+  view(note: Note) {
+    this.note = note;
+  }
+
   /**
    * Add note to array of NOTES
    */
   submitNote() {
-    NOTES.push(this.newNote);
-    this.newNote = new Note();
+    NOTES.push(this.note);
+    this.note = new Note();
     // Emit to new note component to clear url value and set video component to false
     this.noteSubmitted.emit({clearUrl: undefined, clearVid: false, clearMarkdown: ''});
   }

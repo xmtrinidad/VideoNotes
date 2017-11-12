@@ -17,14 +17,17 @@ export class SaveNoteComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
+    // Set title and category for editing
+    this.title = this.newNoteService.note.title;
+    this.category = this.newNoteService.note.category;
   }
+
 
   save() {
-    this.newNoteService.newNote.title = this.title;
-    this.newNoteService.newNote.category = this.category;
+    this.newNoteService.note.title = this.title;
+    this.newNoteService.note.category = this.category;
     this.newNoteService.submitNote();
   }
-
 
 
 }

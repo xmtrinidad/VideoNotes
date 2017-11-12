@@ -15,14 +15,17 @@ import { NewNoteComponent } from './dashboard/new-note/new-note.component';
 import { VideoComponent } from './dashboard/video/video.component';
 import { NoteContentComponent } from './dashboard/note-content/note-content.component';
 import { SaveNoteComponent } from './dashboard/new-note/save-note/save-note.component';
+import { NoteListComponent } from './dashboard/note-list/note-list.component';
 
 import {NavService} from './nav/nav.service';
 import {LandingService} from './landing/landing.service';
 import { NewNoteService } from './dashboard/new-note/new-note.service';
 
-import { SafePipe } from './dashboard/new-note/safe.pipe';
-import { NoteListComponent } from './dashboard/note-list/note-list.component';
+
+
+import { SafePipe } from './dashboard/video/safe.pipe';
 import { ThumbnailPipe } from './thumbnail.pipe';
+import { EmbedPipe } from './embed.pipe';
 
 
 
@@ -41,7 +44,8 @@ import { ThumbnailPipe } from './thumbnail.pipe';
     NoteContentComponent,
     SaveNoteComponent,
     NoteListComponent,
-    ThumbnailPipe
+    ThumbnailPipe,
+    EmbedPipe
   ],
   imports: [
     BrowserModule,

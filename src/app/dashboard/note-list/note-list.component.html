@@ -1,3 +1,7 @@
+<div *ngIf="url">
+  <app-video [url]="url | embed"></app-video>
+  <app-note-content [markdown]="markdown"></app-note-content>
+</div>
 <div class="my-4 note-cards">
   <mat-card *ngFor="let note of notes" class="note-card mat-elevation-z6">
     <mat-card-header>
@@ -6,7 +10,7 @@
     </mat-card-header>
     <img mat-card-image src="{{note.url | thumbnail}}" alt="Youtube image">
     <mat-card-actions>
-      <button mat-button>VIEW</button>
+      <button (click)="viewNote(note)" mat-button>VIEW</button>
     </mat-card-actions>
   </mat-card>
 </div>

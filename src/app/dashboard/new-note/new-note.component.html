@@ -8,7 +8,7 @@
   </div>
 </form>
 <div class="note__content">
-  <app-video *ngIf="urlSubmitted" [url]="url"></app-video>
+  <app-video *ngIf="urlSubmitted" [url]="url | embed"></app-video>
   <app-note-content></app-note-content>
 </div>
 
