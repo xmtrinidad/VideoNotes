@@ -11,14 +11,19 @@ import { LandingFormComponent } from './landing/landing-form/landing-form.compon
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavComponent } from './nav/nav.component';
 import { NavDropdownComponent } from './nav/nav-dropdown/nav-dropdown.component';
+import { NewNoteComponent } from './dashboard/new-note/new-note.component';
+import { VideoComponent } from './dashboard/video/video.component';
+import { NoteContentComponent } from './dashboard/note-content/note-content.component';
+import { SaveNoteComponent } from './dashboard/new-note/save-note/save-note.component';
 
 import {NavService} from './nav/nav.service';
 import {LandingService} from './landing/landing.service';
-import { NewNoteComponent } from './dashboard/new-note/new-note.component';
-import { VideoComponent } from './dashboard/video/video.component';
+import { NewNoteService } from './dashboard/new-note/new-note.service';
+
 import { SafePipe } from './dashboard/new-note/safe.pipe';
-import { NoteContentComponent } from './dashboard/note-content/note-content.component';
-import { SaveNoteComponent } from './dashboard/new-note/save-note/save-note.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -44,7 +49,7 @@ import { SaveNoteComponent } from './dashboard/new-note/save-note/save-note.comp
   entryComponents: [
     SaveNoteComponent
   ],
-  providers: [LandingService, NavService],
+  providers: [LandingService, NavService, NewNoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
