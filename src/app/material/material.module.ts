@@ -6,7 +6,8 @@ import {
   MatIconModule,
   MatTabsModule,
   MatInputModule,
-  MatDialogModule
+  MatDialogModule,
+  MatCardModule
 } from '@angular/material';
 
 @NgModule({
@@ -16,14 +17,16 @@ import {
     MatIconModule,
     MatInputModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
   ],
   exports: [
     MatButtonModule,
     MatIconModule,
     MatTabsModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
   ],
   declarations: []
 })
