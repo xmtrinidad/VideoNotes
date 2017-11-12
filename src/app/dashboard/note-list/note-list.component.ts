@@ -9,12 +9,20 @@ import { Note } from '../../note';
   encapsulation: ViewEncapsulation.None
 })
 export class NoteListComponent implements OnInit {
+  url: string;
+  markdown: string;
   notes: Note[];
 
   constructor(private newNoteService: NewNoteService) { }
 
   ngOnInit() {
     this.newNoteService.getNotes().subscribe((notes) => this.notes = notes);
+  }
+
+  viewNote(note: Note) {
+    this.url = note.url;
+    this.markdown = note.markdown;
+    this.newNoteService.view(note);
   }
 
 }
