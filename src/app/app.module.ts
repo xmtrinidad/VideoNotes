@@ -21,6 +21,8 @@ import {LandingService} from './landing/landing.service';
 import { NewNoteService } from './dashboard/new-note/new-note.service';
 
 import { SafePipe } from './dashboard/new-note/safe.pipe';
+import { NoteListComponent } from './dashboard/note-list/note-list.component';
+import { ThumbnailPipe } from './thumbnail.pipe';
 
 
 
@@ -38,6 +40,8 @@ import { SafePipe } from './dashboard/new-note/safe.pipe';
     SafePipe,
     NoteContentComponent,
     SaveNoteComponent,
+    NoteListComponent,
+    ThumbnailPipe
   ],
   imports: [
     BrowserModule,
