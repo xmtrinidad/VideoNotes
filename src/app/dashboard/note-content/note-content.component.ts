@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import {SaveNoteComponent} from '../new-note/save-note/save-note.component';
+import {SaveNoteComponent} from '../save-note/save-note.component';
 import {NewNoteService} from '../new-note/new-note.service';
+import {DeleteNoteComponent} from '../delete-note/delete-note.component';
 
 @Component({
   selector: 'app-note-content',
@@ -30,6 +31,10 @@ export class NoteContentComponent implements OnInit {
   saveResource() {
     this.newNoteService.note.markdown = this.markdown;
     const dialogRef = this.dialog.open(SaveNoteComponent, {width: '430px'});
+  }
+
+  deleteResource() {
+    this.dialog.open(DeleteNoteComponent);
   }
 
 }
