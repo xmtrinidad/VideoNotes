@@ -28,6 +28,7 @@ import { ThumbnailPipe } from './thumbnail.pipe';
 import { EmbedPipe } from './embed.pipe';
 import { DeleteNoteComponent } from './dashboard/delete-note/delete-note.component';
 import { PreviewNoteComponent } from './dashboard/preview-note/preview-note.component';
+import { NoteCardsComponent } from './dashboard/note-list/note-cards/note-cards.component';
 
 
 
@@ -49,7 +50,8 @@ import { PreviewNoteComponent } from './dashboard/preview-note/preview-note.comp
     ThumbnailPipe,
     EmbedPipe,
     DeleteNoteComponent,
-    PreviewNoteComponent
+    PreviewNoteComponent,
+    NoteCardsComponent
   ],
   imports: [
     BrowserModule,
