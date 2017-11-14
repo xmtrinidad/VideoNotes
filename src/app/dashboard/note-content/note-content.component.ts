@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material';
 import {SaveNoteComponent} from '../save-note/save-note.component';
 import {NewNoteService} from '../new-note/new-note.service';
 import {DeleteNoteComponent} from '../delete-note/delete-note.component';
+import {PreviewNoteComponent} from '../preview-note/preview-note.component';
 
 @Component({
   selector: 'app-note-content',
@@ -21,8 +22,9 @@ export class NoteContentComponent implements OnInit {
     this.newNoteService.noteSubmitted.subscribe((status) => this.markdown = status.clearMarkdown);
   }
 
-  togglePreview() {
-    this.preview = this.preview !== true;
+  previewResource() {
+    this.newNoteService.note.markdown = this.markdown;
+    const dialogRef = this.dialog.open(PreviewNoteComponent);
   }
 
   /**

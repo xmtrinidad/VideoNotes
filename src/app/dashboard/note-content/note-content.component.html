@@ -8,14 +8,7 @@
   <div class="btn-group">
     <!-- View Markdown Button -->
     <div>
-      <button (click)="togglePreview()" *ngIf="!preview" mat-fab color="accent">
-        <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>
-      </button>
-    </div>
-
-    <!-- Preview Button -->
-    <div>
-      <button (click)="togglePreview()" *ngIf="preview" mat-fab color="accent">
+      <button (click)="previewResource()" mat-fab color="accent">
         <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>
       </button>
     </div>
