@@ -27,6 +27,7 @@ import { SafePipe } from './dashboard/video/safe.pipe';
 import { ThumbnailPipe } from './thumbnail.pipe';
 import { EmbedPipe } from './embed.pipe';
 import { DeleteNoteComponent } from './dashboard/delete-note/delete-note.component';
+import { PreviewNoteComponent } from './dashboard/preview-note/preview-note.component';
 
 
 
@@ -47,7 +48,8 @@ import { DeleteNoteComponent } from './dashboard/delete-note/delete-note.compone
     NoteListComponent,
     ThumbnailPipe,
     EmbedPipe,
-    DeleteNoteComponent
+    DeleteNoteComponent,
+    PreviewNoteComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,7 @@ import { DeleteNoteComponent } from './dashboard/delete-note/delete-note.compone
   ],
   entryComponents: [
     SaveNoteComponent,
+    PreviewNoteComponent,
     DeleteNoteComponent
   ],
   providers: [LandingService, NavService, NewNoteService],
