@@ -1,14 +1,17 @@
-<form class="note mt-3">
-  <mat-form-field>
-    <input [(ngModel)]="url" matInput placeholder="Enter Youtube URL" name="vid_url">
-  </mat-form-field>
-  <div class="btn-group">
-    <button (click)="enterUrl()" mat-raised-button color="accent" class="mr-2" type="button">Submit</button>
-    <button (click)="cancel()" mat-raised-button color="warn" type="button">Cancel</button>
+<h2 class="text-center mt-4">Enter Youtube URL</h2>
+<div class="note-container">
+  <form class="note mt-3">
+    <mat-form-field>
+      <input [(ngModel)]="url" matInput placeholder="Youtube URL" name="vid_url">
+    </mat-form-field>
+    <div class="btn-group">
+      <button (click)="enterUrl()" mat-raised-button color="accent" class="mr-2" type="button">Submit</button>
+      <button (click)="cancel()" mat-raised-button color="warn" type="button">Cancel</button>
+    </div>
+  </form>
+  <div *ngIf="url && validateYouTubeUrl()" class="note__content">
+    <app-video [url]="url | embed"></app-video>
+    <app-note-content></app-note-content>
   </div>
-</form>
-<div *ngIf="url && validateYouTubeUrl()" class="note__content">
-  <app-video [url]="url | embed"></app-video>
-  <app-note-content></app-note-content>
 </div>
 

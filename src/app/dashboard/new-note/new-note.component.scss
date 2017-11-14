@@ -2,21 +2,19 @@
   width: 100%;
 }
 
-.note__content {
-  display: grid;
+.note-container {
+  max-width: 690px;
+  margin: auto;
 }
 
+@media (min-width: 768px) {
+
+}
 
 @media (min-width: 992px) {
-  .note__content {
-    grid-gap: 10px;
-    grid-template-columns: 530px 1fr;
-  }
+
 }
 
 @media (min-width: 1200px) {
-  .note__content {
-    grid-gap: 10px;
-    grid-template-columns: 675px 1fr;
-  }
+
 }
