@@ -4,6 +4,7 @@
 @import '~@angular/material/theming';
 @import 'app/nav/nav.component.scss';
 @import 'app/nav/nav-dropdown/nav-dropdown.component.scss';
+@import 'app/footer/footer.component.scss';
 @include mat-core();
 
 
@@ -17,6 +18,7 @@ $video-app-theme: mat-light-theme($video-app-primary, $video-app-accent, $video-
 @include angular-material-theme($video-app-theme);
 @include nav-theme($video-app-theme);
 @include nav-dropdown-theme($video-app-theme);
+@include footer-theme($video-app-theme);
 
 html, body {
   height: 100%;

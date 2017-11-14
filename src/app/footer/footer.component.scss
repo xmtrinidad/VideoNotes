@@ -1,0 +1,35 @@
+@import '~@angular/material/theming';
+
+@mixin footer-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .copyright {
+    background-color: mat-color($primary);
+  }
+}
+
+footer {
+  margin-top: 30px;
+}
+
+.footer__container {
+  padding: 10px;
+  text-align: center;
+}
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.social-icon a {
+  font-size: 1.8rem;
+}
+
+.copyright {
+  text-align: center;
+}

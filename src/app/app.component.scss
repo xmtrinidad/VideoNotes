@@ -1,0 +1,9 @@
+.project {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+app-dashboard {
+  flex: 1;
+}

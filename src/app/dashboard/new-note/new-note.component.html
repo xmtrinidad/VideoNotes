@@ -9,7 +9,7 @@
       <button (click)="cancel()" mat-raised-button color="warn" type="button">Cancel</button>
     </div>
   </form>
-  <div *ngIf="url && validateYouTubeUrl()" class="note__content">
+  <div *ngIf="url && validateYouTubeUrl() && urlSubmitted" class="note__content">
     <app-video [url]="url | embed"></app-video>
     <app-note-content></app-note-content>
   </div>

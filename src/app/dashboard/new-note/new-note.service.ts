@@ -64,8 +64,14 @@ export class NewNoteService {
 
   deleteNote() {
     const index = NOTES.findIndex(x => x.title === this.note.title);
-    NOTES.splice(index, 1);
-    this.emitClear();
+    // Check if note exist, if not, it is a new note
+    if (index === -1) {
+      // Clear new note fields and reset video status
+      this.emitClear();
+    } else {
+      NOTES.splice(index, 1);
+      this.emitClear();
+    }
   }
 
 }
