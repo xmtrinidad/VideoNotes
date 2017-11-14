@@ -1,8 +1,23 @@
-<div *ngIf="url">
-  <app-video [url]="url | embed"></app-video>
-  <app-note-content [markdown]="markdown"></app-note-content>
+<div *ngIf="cardSelected" class="note-list-section">
+  <div *ngIf="url">
+    <app-video [url]="url | embed"></app-video>
+    <app-note-content [markdown]="markdown"></app-note-content>
+  </div>
+
+  <div  class="my-4 note-cards">
+    <mat-card *ngFor="let note of notes" class="note-card mat-elevation-z6">
+      <mat-card-header>
+        <mat-card-title>{{note.title}}</mat-card-title>
+        <mat-card-subtitle>{{note.category}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{note.url | thumbnail}}" alt="Youtube image">
+      <mat-card-actions>
+        <button (click)="viewNote(note)" mat-button>VIEW</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 </div>
-<div class="my-4 note-cards">
+<div *ngIf="!cardSelected" class="temp-display my-4 p-4">
   <mat-card *ngFor="let note of notes" class="note-card mat-elevation-z6">
     <mat-card-header>
       <mat-card-title>{{note.title}}</mat-card-title>

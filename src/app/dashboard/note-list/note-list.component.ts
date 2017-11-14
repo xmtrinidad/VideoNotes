@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
 import {NewNoteService} from '../new-note/new-note.service';
 import { Note } from '../../note';
 
@@ -12,6 +12,7 @@ export class NoteListComponent implements OnInit {
   url: string;
   markdown: string;
   notes: Note[];
+  @Input() cardSelected = false;
 
   constructor(private newNoteService: NewNoteService) { }
 
@@ -25,6 +26,7 @@ export class NoteListComponent implements OnInit {
   }
 
   viewNote(note: Note) {
+    this.cardSelected = true;
     this.url = note.url;
     this.markdown = note.markdown;
     this.newNoteService.view(note);

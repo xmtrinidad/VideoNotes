@@ -23,9 +23,11 @@ import {NavService} from '../nav.service';
 })
 export class NavDropdownComponent implements OnInit {
 
+
   constructor(public navService: NavService) { }
 
   ngOnInit() {
+
   }
 
   closeMenu() {
