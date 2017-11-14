@@ -40,4 +40,16 @@ export class NewNoteComponent implements OnInit {
     this.newNoteService.note.url = this.url;
   }
 
+  /**
+   * Youtube validator taken from Stack Overflow:
+   * https://stackoverflow.com/questions/28735459/how-to-validate-youtube-url-in-client-side-in-text-box
+   **/
+  validateYouTubeUrl() {
+    if (this.url !== undefined || this.url !== '') {
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+      const match = this.url.match(regExp);
+      return match && match[2].length === 11;
+    }
+  }
+
 }
