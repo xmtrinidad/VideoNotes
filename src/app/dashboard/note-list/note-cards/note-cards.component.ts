@@ -18,6 +18,8 @@ export class NoteCardsComponent implements OnInit {
 
   emitViewClicked(noteClicked: Note) {
     this.viewClicked.emit(noteClicked);
+    // Scroll to top of page
+    window.scrollTo(0, 0);
   }
 
 }

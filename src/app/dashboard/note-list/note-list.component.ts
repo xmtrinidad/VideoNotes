@@ -18,10 +18,11 @@ export class NoteListComponent implements OnInit {
 
   ngOnInit() {
     this.newNoteService.getNotes().subscribe((notes) => this.notes = notes);
-    // Remove video and markdown on delete
+    // Remove video and markdown on delete and reset temp card view
     this.newNoteService.noteSubmitted.subscribe((status) => {
       this.url = status.clearUrl;
       this.markdown = status.clearMarkdown;
+      this.cardSelected = status.clearVid;
     });
   }
 
