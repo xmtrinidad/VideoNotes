@@ -1,7 +1,11 @@
+# This project is still in development; working on backend data service with Firestore.  Static implementation is functional.
+
 # VideoNotes
 
 * Enter a youtube URL and take notes in markdown
 * Save your resources and review your notes
+
+
 
 # Documentation
 
