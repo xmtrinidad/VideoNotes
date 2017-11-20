@@ -1,16 +1,22 @@
 <form class="form">
-
-  <h4>{{formInfo.formTitle}}</h4>
-
-  <div class="form-group" *ngFor="let formInput of formInfo.formInputs">
-    <label for="{{formInput.id}}">{{formInput.label}}</label>
-    <input type="{{formInput.type}}" id="{{formInput.id}}" class="form-control">
+  <div class="text-center">
+    <h4>{{formInfo.formTitle}}</h4>
+    <div>
+      <button mat-icon-button><i class="fa fa-google fa-2x" aria-hidden="true"></i></button>
+      <button (click)="emailLogin()" mat-icon-button><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></button>
+    </div>
   </div>
 
-  <div *ngFor="let formBtn of formInfo.buttons" class="landing__btns btn-group mr-2">
-    <button (click)="formClick(formBtn.name)"
-            mat-raised-button [color]="formBtn.color"
-            type="button">{{formBtn.name}}
-    </button>
+  <div *ngIf="showEmail">
+    <div class="form-group" *ngFor="let formInput of formInfo.formInputs">
+      <label for="{{formInput.id}}">{{formInput.label}}</label>
+      <input type="{{formInput.type}}" id="{{formInput.id}}" class="form-control">
+    </div>
+    <div *ngFor="let formBtn of formInfo.buttons" class="landing__btns btn-group mr-2">
+      <button (click)="formClick(formBtn.name)"
+              mat-raised-button [color]="formBtn.color"
+              type="button">{{formBtn.name}}
+      </button>
+    </div>
   </div>
 </form>

@@ -9,6 +9,7 @@ import {FormInfo} from '../form-data';
   encapsulation: ViewEncapsulation.None
 })
 export class LandingFormComponent implements OnInit {
+  showEmail = false;
   formInfo: FormInfo;
 
   constructor(private landingService: LandingService) { }
@@ -24,6 +25,10 @@ export class LandingFormComponent implements OnInit {
       return;
     }
 
+  }
+
+  emailLogin() {
+    this.showEmail = true;
   }
 
 }
