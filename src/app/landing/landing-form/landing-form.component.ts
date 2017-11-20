@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {LandingService} from '../landing.service';
 import {FormInfo} from '../form-data';
+import {AuthService} from '../../core/auth.service';
 
 @Component({
   selector: 'app-landing-form',
@@ -12,7 +13,10 @@ export class LandingFormComponent implements OnInit {
   showEmail = false;
   formInfo: FormInfo;
 
-  constructor(private landingService: LandingService) { }
+  constructor(
+    private landingService: LandingService,
+    public auth: AuthService
+  ) { }
 
   ngOnInit() {
     this.formInfo = this.landingService.forms;

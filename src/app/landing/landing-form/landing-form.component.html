@@ -2,7 +2,7 @@
   <div class="text-center">
     <h4>{{formInfo.formTitle}}</h4>
     <div>
-      <button mat-icon-button><i class="fa fa-google fa-2x" aria-hidden="true"></i></button>
+      <button (click)="auth.googleLogin()" mat-icon-button><i class="fa fa-google fa-2x" aria-hidden="true"></i></button>
       <button (click)="emailLogin()" mat-icon-button><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></button>
     </div>
   </div>

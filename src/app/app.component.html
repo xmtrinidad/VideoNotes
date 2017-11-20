@@ -1,6 +1,17 @@
-<app-landing></app-landing>
-<!--<app-nav></app-nav>-->
-<!--<app-dashboard></app-dashboard>-->
-<!--<app-footer></app-footer>-->
-<!--</div>
-<!--<div class="project">-->-->
+<div *ngIf="auth.user | async; then authenticated else signIn">
+
+</div>
+
+<ng-template #signIn>
+  <app-landing></app-landing>
+</ng-template>
+
+
+
+<ng-template #authenticated>
+  <div class="project">
+    <app-nav></app-nav>
+    <app-dashboard></app-dashboard>
+    <app-footer></app-footer>
+  </div>
+</ng-template>

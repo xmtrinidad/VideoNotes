@@ -30,8 +30,7 @@ import { DeleteNoteComponent } from './dashboard/delete-note/delete-note.compone
 import { PreviewNoteComponent } from './dashboard/preview-note/preview-note.component';
 import { NoteCardsComponent } from './dashboard/note-list/note-cards/note-cards.component';
 import { FooterComponent } from './footer/footer.component';
-
-
+import {CoreModule} from './core/core.module';
 
 
 @NgModule({
@@ -60,6 +59,7 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    CoreModule,
     MarkdownToHtmlModule.forRoot()
   ],
   entryComponents: [
