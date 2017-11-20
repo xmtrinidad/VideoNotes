@@ -1,7 +1,7 @@
 export class FormInfo {
   formTitle: string;
   formInputs: [ {label: string, type: string, id: string} ];
-  buttons: [{name: string, color: string}];
+  buttons: [{name: string, action?: Function, color: string}];
 }
 
 export const forms: FormInfo[] = [

@@ -39,7 +39,15 @@ export class AuthService {
     return this.oAuthLogin(provider);
   }
 
-
+  emailSignUp(email: string, password: string) {
+    this.afAuth
+      .auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(credential => {
+        console.log(credential);
+        this.updateUserData(credential);
+      });
+  }
 
   private oAuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
@@ -59,6 +67,17 @@ export class AuthService {
     };
 
     return userRef.set(data);
+  }
+
+  login(email: string, password: string) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password);
+  }
+
+  /**
+   * Sign out user
+   */
+  logout() {
+    this.afAuth.auth.signOut();
   }
 
 
