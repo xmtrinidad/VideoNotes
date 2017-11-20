@@ -44,7 +44,6 @@ export class AuthService {
       .auth
       .createUserWithEmailAndPassword(email, password)
       .then(credential => {
-        console.log(credential);
         this.updateUserData(credential);
       });
   }

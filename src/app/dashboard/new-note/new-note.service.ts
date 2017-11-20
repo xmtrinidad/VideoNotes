@@ -3,15 +3,17 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Note } from '../../note';
 import { NOTES } from '../../mock-data';
+import {AuthService} from '../../core/auth.service';
 
 @Injectable()
 export class NewNoteService {
   note = new Note();
   noteSubmitted = new EventEmitter();
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   getNotes(): Observable<Note[]> {
+    this.authService.user.subscribe(t => console.log(t));
     return of(NOTES);
   }
 
