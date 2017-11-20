@@ -11,24 +11,23 @@ import {AuthService} from '../../core/auth.service';
 })
 export class LandingFormComponent implements OnInit {
   showEmail = false;
+  register = false;
   formInfo: FormInfo;
+
+  email: string;
+  password: string;
 
   constructor(
     private landingService: LandingService,
-    public auth: AuthService
+    public fsAuth: AuthService
   ) { }
 
   ngOnInit() {
     this.formInfo = this.landingService.forms;
   }
 
-  formClick(btnName) {
-
-    if (btnName === 'Register' || btnName === 'Cancel') {
-      this.formInfo = this.landingService.getForm(btnName);
-      return;
-    }
-
+  registerUser() {
+    this.register = this.register !== true;
   }
 
   emailLogin() {

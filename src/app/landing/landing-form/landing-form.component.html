@@ -1,22 +1,60 @@
 <form class="form">
   <div class="text-center">
-    <h4>{{formInfo.formTitle}}</h4>
+    <h4 *ngIf="!register">Sign-In</h4>
+    <h4 *ngIf="register">Register</h4>
     <div>
-      <button (click)="auth.googleLogin()" mat-icon-button><i class="fa fa-google fa-2x" aria-hidden="true"></i></button>
+      <button (click)="fsAuth.googleLogin()" mat-icon-button><i class="fa fa-google fa-2x" aria-hidden="true"></i>
+      </button>
       <button (click)="emailLogin()" mat-icon-button><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></button>
     </div>
   </div>
 
   <div *ngIf="showEmail">
-    <div class="form-group" *ngFor="let formInput of formInfo.formInputs">
-      <label for="{{formInput.id}}">{{formInput.label}}</label>
-      <input type="{{formInput.type}}" id="{{formInput.id}}" class="form-control">
+    <div *ngIf="!register; then userSignIn else userRegister">
+
     </div>
-    <div *ngFor="let formBtn of formInfo.buttons" class="landing__btns btn-group mr-2">
-      <button (click)="formClick(formBtn.name)"
-              mat-raised-button [color]="formBtn.color"
-              type="button">{{formBtn.name}}
-      </button>
-    </div>
+    <ng-template #userSignIn>
+      <div class="form-group">
+        <label for="user_email" name="email">Email:</label>
+        <input [(ngModel)]="email" type="email" name="email" id="user_email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="user_pw">Password:</label>
+        <input [(ngModel)]="password" type="password" name="pw" id="user_pw" class="form-control">
+      </div>
+      <div class="landing__btns btn-group">
+        <button class="mr-2"
+                (click)="fsAuth.login(email, password)"
+                mat-raised-button color="primary"
+                type="button">Sign-In
+        </button>
+        <button (click)="registerUser()"
+                mat-raised-button color="accent"
+                type="button">Register
+        </button>
+      </div>
+    </ng-template>
+
+    <ng-template #userRegister>
+      <div class="form-group">
+        <label for="entered_email">Enter Email:</label>
+        <input [(ngModel)]="email" type="email" id="entered_email" name="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <label  for="entered_pw">Enter Password:</label>
+        <input [(ngModel)]="password" name="pw" type="password" id="entered_pw" class="form-control">
+      </div>
+      <div class="landing__btns btn-group">
+        <button class="mr-2" (click)="fsAuth.emailSignUp(email, password)"
+                mat-raised-button color="primary"
+                type="button">Sign-up
+        </button>
+        <button (click)="registerUser()"
+                mat-raised-button color="accent"
+                type="button">Cancel
+        </button>
+      </div>
+    </ng-template>
   </div>
+
 </form>
