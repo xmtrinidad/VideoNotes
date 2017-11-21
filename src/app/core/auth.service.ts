@@ -6,17 +6,17 @@ import { AngularFirestore, AngularFirestoreDocument} from 'angularfire2/firestor
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
+import {Note} from '../note';
 
 interface User {
   uid: string;
   email: string;
-  photoURL?: string;
-  displayName: string;
+  notes: Note[];
 }
 
 @Injectable()
 export class AuthService {
-
+  private usersDoc: AngularFirestoreDocument<User>;
   user: Observable<User>;
 
   constructor(
@@ -27,11 +27,13 @@ export class AuthService {
     this.user = this.afAuth.authState
       .switchMap(user => {
         if (user) {
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+          this.usersDoc = this.afs.doc<User>(`users/${user.uid}`);
+          return this.usersDoc.valueChanges();
         } else {
           return Observable.of(null);
         }
       });
+
   }
 
   googleLogin() {
@@ -61,8 +63,7 @@ export class AuthService {
     const data: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL
+      notes: []
     };
 
     return userRef.set(data);
