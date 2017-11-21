@@ -17,7 +17,7 @@ export class NoteListComponent implements OnInit {
   constructor(private newNoteService: NewNoteService) { }
 
   ngOnInit() {
-    this.newNoteService.getNotes().subscribe((notes) => this.notes = notes);
+    this.newNoteService.getNotes.subscribe(notes => this.notes = notes);
     // Remove video and markdown on delete and reset temp card view
     this.newNoteService.noteSubmitted.subscribe((status) => {
       this.url = status.clearUrl;

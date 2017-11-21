@@ -7,14 +7,19 @@ import {AuthService} from '../../core/auth.service';
 
 @Injectable()
 export class NewNoteService {
+  getNotes = new EventEmitter<Note[]>();
+  savedNotes: Note[];
   note = new Note();
   noteSubmitted = new EventEmitter();
 
-  constructor(private authService: AuthService) { }
-
-  getNotes(): Observable<Note[]> {
-    this.authService.user.subscribe(t => console.log(t));
-    return of(NOTES);
+  constructor(private authService: AuthService) {
+    this.authService.user.subscribe((t) => {
+      if (t === null) {
+        return;
+      }
+      this.getNotes.emit(t.notes);
+      this.savedNotes = t.notes;
+    });
   }
 
   /**
